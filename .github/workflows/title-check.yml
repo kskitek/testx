@@ -1,0 +1,17 @@
+name: check
+on:
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check pull request title
+        uses: Slashgear/action-check-pr-title@v4.3.0
+        with:
+          regexp: "(feat|fix|docs): .++"
+          helpMessage: "Example: 'feat: example of title'"
+            
